@@ -1,5 +1,5 @@
 // Import the functions you need from the SDKs you need
- import firebase from 'firebase/compat/app';
+ import firebase from "firebase/compat/app";
  import "firebase/compat/auth";
 // import firebase from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
 // TODO: Add SDKs for Firebase products that you want to use
