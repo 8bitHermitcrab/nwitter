@@ -6,12 +6,13 @@ import Navigation from "./Navigation";
 
 const AppRouter = ({ isLoggedIn }) => {
     return (
-        <Router> {isLoggedIn && <Navigation />}
+        <Router> 
+            {isLoggedIn && <Navigation />}
             <Routes>
                 {isLoggedIn ? (
                     <>
                         <Route path="/" element={<Home />} />
-                        <Route path="/" element={<Profile />} />
+                        <Route path="/profile" element={<Profile />} />
                     </>
             ) : (
                     <Route path="/" element={<Auth />} />
