@@ -1,7 +1,8 @@
 import { dbService } from "fbase";
 import { useEffect, useState } from "react";
 
-const Home = () => {
+const Home = ( { useObj } ) => {
+    console.log(useObj);
     const [nweet, setNweet] = useState("");
     const [nweets, setNweets] = useState([]); // eslint-disable-line no-unused-vars
 
@@ -22,6 +23,7 @@ const Home = () => {
         await dbService.collection("nweets").add({
             text: nweet,
             createdAt: Date.now(),
+            creatorId: userObj.uid,
         });
         setNweet("");
     };
