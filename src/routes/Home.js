@@ -22,7 +22,7 @@ const Home = ( { userObj } ) => {
         await dbService.collection("nweets").add({
             text: nweet,
             createdAt: Date.now(),
-            creatorId: userObj.uid,
+            creatorId: userObj.uid
         });
         setNweet("");
     };
