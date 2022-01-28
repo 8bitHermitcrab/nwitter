@@ -31,7 +31,14 @@ const Home = ( { userObj } ) => {
         .child(`${userObj.uid}/${uuidv4()}`);
         const response = await attachmentRef.putString(attachment, "data_url");
         const attachmentUrl = await response.ref.getDownloadURL();
-        console.log(await response.ref.getDownloadURL());
+        await dbService.collection("nweets").add({
+            text: nweet,
+            createdAt: Date.now(),
+            creatorId: userObj.uid,
+            attachmentUrl,
+        });
+        setNweets("");
+        setAttachment("");
     };
 
     const onChange = (event) => {
