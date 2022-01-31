@@ -10,14 +10,12 @@ const Profile = () => {
         history.push("/");
     };
 
-    const getMyNweets = async () => {
-        const nweets = await dbService.collection("nweets");
-    };
-
-    useEffect(() => {}, []);
-
     return (
         <>
+            <form>
+                <input type="text" placeholder="Display name" />
+                <input type="submit" value="Update Profile" />
+            </form>
             <button onClick={onLogOutClick}>Log Out</button>
         </>
     );
