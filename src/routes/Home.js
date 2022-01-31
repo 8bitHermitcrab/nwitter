@@ -26,11 +26,14 @@ const Home = ( { userObj } ) => {
             creatorId: userObj.uid,
         });
         setNweet(""); */
-        const attachmentRef = storageService
-        .ref()
-        .child(`${userObj.uid}/${uuidv4()}`);
-        const response = await attachmentRef.putString(attachment, "data_url");
-        const attachmentUrl = await response.ref.getDownloadURL();
+        let attachmentRef = "";
+        if (attachment !== "") {
+            const attachmentRef = storageService
+                .ref()
+                .child(`${userObj.uid}/${uuidv4()}`);
+            const response = await attachmentRef.putString(attachment, "data_url");
+            attachmentUrl = await response.ref.getDownloadURL();
+        }
         await dbService.collection("nweets").add({
             text: nweet,
             createdAt: Date.now(),
