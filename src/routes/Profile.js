@@ -1,9 +1,10 @@
 import { authService, dbService } from "fbase";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
-const Profile = () => {
-    const history = useNavigate();
+const Profile = ( {userObj } ) => {
+    const history = useHistory();
+    const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);
     
     const onLogOutClick = () => {
         authService.signOut();
