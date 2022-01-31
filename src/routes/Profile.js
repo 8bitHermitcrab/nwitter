@@ -1,4 +1,5 @@
-import { authService } from "fbase";
+import { authService, dbService } from "fbase";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
@@ -7,7 +8,13 @@ const Profile = () => {
     const onLogOutClick = () => {
         authService.signOut();
         history.push("/");
-    }
+    };
+
+    const getMyNweets = async () => {
+        const nweets = await dbService.collection("nweets");
+    };
+
+    useEffect(() => {}, []);
 
     return (
         <>
