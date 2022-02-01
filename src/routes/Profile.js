@@ -11,10 +11,22 @@ const Profile = ( {userObj } ) => {
         history.push("/");
     };
 
+    const onChange = (event) => {
+        const {
+            target: { value },
+        } = event;
+        setNewDisplayName(value);
+    };
+
     return (
         <>
             <form>
-                <input type="text" placeholder="Display name" />
+                <input
+                onChange={onChange} 
+                type="text" 
+                placeholder="Display name" 
+                value={newDisplayName}
+                />
                 <input type="submit" value="Update Profile" />
             </form>
             <button onClick={onLogOutClick}>Log Out</button>
